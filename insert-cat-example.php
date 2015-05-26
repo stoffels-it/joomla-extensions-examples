@@ -119,17 +119,17 @@ class InsertCatExampleCli extends JApplicationCli {
             $tbl_cat->setLocation(1, "last-child");
 
             if (!$tbl_cat->bind($values)) {
-                JError::raiseWarning( 500, $row->getError() );
+                JError::raiseWarning(500, $row->getError());
                 return FALSE;
             }
 
             if (!$tbl_cat->check()) {
-                JError::raiseNotice(500, $article->getError());
+                JError::raiseError(500, $article->getError());
                 return FALSE;
             }
 
             if (!$tbl_cat->store(TRUE)) {
-                JError::raiseNotice(500, $article->getError());
+                JError::raiseError(500, $article->getError());
                 return FALSE;
             } 
 
